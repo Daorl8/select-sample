@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QUINZE · 캥즈 — 한남동 패션 셀렉트샵</title>
+<meta name="description" content="감도 높은 컨템포러리 브랜드를 큐레이션하는 한남동 셀렉트샵 QUINZE. 신상 입고, 룩북, 매장 안내.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+:root{
+  --paper:#EDE9E1; --paper2:#E4DED2; --ink:#16130F; --red:#DA2B1F; --grey:#6B665C; --line:#16130F;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;background:var(--paper);color:var(--ink);
+  line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-x:hidden;padding-top:90px}
+.display{font-family:"Anton",Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.92}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:92%;max-width:1240px;margin:0 auto}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border:2px solid var(--ink);background:var(--paper);
+  color:var(--ink);font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;
+  transition:background .18s,color .18s}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn--red{background:var(--red);border-color:var(--red);color:#fff}
+.btn--red:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.section{padding:84px 0;border-top:2px solid var(--ink)}
+
+/* 내비 */
+.topnav{position:fixed;top:0;left:0;right:0;z-index:90;height:56px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 4%;background:var(--paper);border-bottom:2px solid var(--ink)}
+.topnav__logo{font-family:"Anton",sans-serif;font-size:1.5rem;letter-spacing:.04em;text-transform:uppercase}
+.topnav__logo b{color:var(--red)}
+.topnav__links{display:flex;gap:26px;align-items:center}
+.topnav__links a{font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;display:flex;gap:6px;align-items:baseline}
+.topnav__links a .num{font-family:"Anton",sans-serif;font-size:.78rem;color:var(--red)}
+.topnav__links a:hover{color:var(--red)}
+.topnav__burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.topnav__burger i{width:24px;height:2.5px;background:var(--ink);display:block}
+
+/* 마퀴 */
+.marquee{position:fixed;top:56px;left:0;right:0;z-index:89;height:34px;background:var(--red);color:#fff;overflow:hidden;
+  display:flex;align-items:center;border-bottom:2px solid var(--ink)}
+.marquee__track{display:flex;white-space:nowrap;will-change:transform;animation:marq 22s linear infinite}
+.marquee__track span{font-family:"Anton",sans-serif;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;padding:0 22px}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* 게이트 */
+.gate{position:fixed;inset:0;z-index:200;background:var(--paper);display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;transition:transform .7s cubic-bezier(.7,0,.2,1),opacity .5s;padding:24px}
+.gate.open{transform:translateY(-100%);opacity:0;pointer-events:none}
+.gate__kicker{font-size:.8rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:20px}
+.gate__title{font-family:"Anton",sans-serif;font-size:clamp(4rem,22vw,16rem);line-height:.84;text-transform:uppercase;letter-spacing:.02em}
+.gate__sub{margin:22px 0 34px;font-size:.95rem;color:var(--grey);letter-spacing:.02em}
+.gate__enter{font-size:1rem;padding:16px 44px}
+.gate__corner{position:absolute;font-family:"Anton",sans-serif;font-size:.8rem;letter-spacing:.1em;color:var(--ink);text-transform:uppercase}
+.gate__corner.tl{top:20px;left:24px}.gate__corner.tr{top:20px;right:24px}
+.gate__corner.bl{bottom:20px;left:24px}.gate__corner.br{bottom:20px;right:24px}
+
+/* 히어로 */
+.hero{display:grid;grid-template-columns:1.12fr .88fr;border-bottom:2px solid var(--ink)}
+.hero__text{padding:56px 4% 56px 4%;display:flex;flex-direction:column;justify-content:center;border-right:2px solid var(--ink)}
+.hero__title{font-family:"Anton",sans-serif;font-size:clamp(3rem,8vw,7rem);line-height:.9;text-transform:uppercase}
+.hero__title em{font-style:normal;color:var(--red)}
+.hero__lead{margin:26px 0 30px;font-size:1.04rem;color:var(--grey);max-width:34ch}
+.hero__cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero__media{position:relative;min-height:520px;background:var(--paper2)}
+.hero__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero__tag{position:absolute;left:0;bottom:0;background:var(--ink);color:var(--paper);font-family:"Anton",sans-serif;
+  font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;padding:8px 16px;z-index:2}
+
+@media (max-width:880px){
+  body{padding-top:90px}
+  .topnav__links{position:fixed;inset:90px 0 0 auto;width:74%;max-width:300px;background:var(--paper);flex-direction:column;
+    justify-content:flex-start;gap:0;transform:translateX(100%);transition:transform .3s;border-left:2px solid var(--ink);z-index:88;padding-top:10px}
+  .topnav__links.open{transform:translateX(0)}
+  .topnav__links a{font-size:1rem;width:100%;padding:18px 24px;border-bottom:1px solid var(--line)}
+  .topnav__burger{display:flex}
+  .hero{grid-template-columns:1fr}
+  .hero__text{border-right:none;border-bottom:2px solid var(--ink);padding:40px 6%}
+  .hero__media{min-height:420px}
+  .gate__title{font-size:clamp(3.4rem,26vw,8rem)}
+  .section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- 게이트 진입 -->
+<div class="gate" id="gate">
+  <span class="gate__corner tl">EST. 2018</span>
+  <span class="gate__corner tr">SEOUL / 한남</span>
+  <span class="gate__corner bl">SELECT SHOP</span>
+  <span class="gate__corner br">No. 15</span>
+  <p class="gate__kicker">Contemporary Select Shop</p>
+  <h1 class="gate__title">QUINZE</h1>
+  <p class="gate__sub">감도 높은 컨템포러리 브랜드를 골라 담는 한남동 편집숍</p>
+  <button class="btn btn--red gate__enter" id="enterBtn">Enter →</button>
+</div>
+
+<!-- 내비 -->
+<nav class="topnav" id="topnav">
+  <a class="topnav__logo" href="#home">QUIN<b>Z</b>E</a>
+  <div class="topnav__links" id="navLinks">
+    <a href="#shop"><span class="num">01</span> Shop</a>
+    <a href="#lookbook"><span class="num">02</span> Lookbook</a>
+    <a href="#about"><span class="num">03</span> About</a>
+    <a href="#visit"><span class="num">04</span> Visit</a>
+    <a href="#contact"><span class="num">05</span> Contact</a>
+  </div>
+  <button class="topnav__burger" id="burger" aria-label="메뉴"><i></i><i></i><i></i></button>
+</nav>
+
+<!-- 마퀴 -->
+<div class="marquee">
+  <div class="marquee__track">
+    <span>New Arrivals — 2026 SS Collection</span><span>·</span><span>전 상품 무료배송</span><span>·</span><span>한남 플래그십 오픈</span><span>·</span><span>Members 10% Off</span><span>·</span>
+    <span>New Arrivals — 2026 SS Collection</span><span>·</span><span>전 상품 무료배송</span><span>·</span><span>한남 플래그십 오픈</span><span>·</span><span>Members 10% Off</span><span>·</span>
+  </div>
+</div>
+
+<!-- 히어로 -->
+<header id="home">
+  <div class="hero">
+    <div class="hero__text reveal">
+      <p class="eyebrow">2026 Spring / Summer</p>
+      <h1 class="hero__title">Wear<br><em>Nothing</em><br>Ordinary</h1>
+      <p class="hero__lead">국내외 신진 디자이너 브랜드를 분기마다 새로 큐레이션합니다. 남들과 다른 한 벌을 한남동에서.</p>
+      <div class="hero__cta">
+        <a href="https://smartstore.naver.com" target="_blank" rel="noopener" class="btn btn--red">스토어 바로가기</a>
+        <a href="#shop" class="btn">신상 보기</a>
+      </div>
+    </div>
+    <div class="hero__media reveal">
+      <span class="hero__tag">Look 01 — SS26</span>
+      <img src="https://images.unsplash.com/photo-1603189343302-e603f7add05a?auto=format&fit=crop&w=1100&q=80" alt="QUINZE 2026 SS 룩">
+    </div>
+  </div>
+</header>
+
+<style>
+/* 숍 그리드 */
+#shop .shop__head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:18px;margin-bottom:34px}
+#shop .shop__head h2{font-family:"Anton",sans-serif;font-size:clamp(2.2rem,5vw,3.6rem);text-transform:uppercase;line-height:.92}
+.filter{display:flex;gap:8px;flex-wrap:wrap}
+.filter button{border:2px solid var(--ink);background:var(--paper);padding:8px 16px;font-weight:700;font-size:.78rem;
+  letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:background .15s,color .15s}
+.filter button.on,.filter button:hover{background:var(--ink);color:var(--paper)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);border-left:2px solid var(--ink);border-top:2px solid var(--ink)}
+.pcard{position:relative;overflow:hidden;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);
+  background:var(--paper2);aspect-ratio:3/4}
+.pcard img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.pcard:hover img{transform:scale(1.06)}
+.pcard__tag{position:absolute;top:0;left:0;z-index:3;background:var(--paper);border-right:2px solid var(--ink);
+  border-bottom:2px solid var(--ink);font-family:"Anton",sans-serif;font-size:.72rem;letter-spacing:.05em;
+  text-transform:uppercase;padding:5px 11px}
+.pcard__reveal{position:absolute;left:0;right:0;bottom:0;z-index:2;background:var(--ink);color:var(--paper);
+  padding:15px 16px;transform:translateY(100%);transition:transform .35s cubic-bezier(.7,0,.2,1);display:flex;flex-direction:column;gap:3px}
+.pcard:hover .pcard__reveal{transform:translateY(0)}
+.pcard__name{font-weight:700;font-size:.92rem}
+.pcard__price{font-family:"Anton",sans-serif;font-size:1.05rem;color:#fff}
+.pcard__price small{font-family:Pretendard,sans-serif;font-size:.7rem;color:var(--grey);font-weight:600}
+.pcard__link{margin-top:6px;font-size:.74rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red)}
+.shop__note{margin-top:18px;font-size:.82rem;color:var(--grey)}
+
+/* 룩북 */
+#lookbook{background:var(--ink);color:var(--paper)}
+#lookbook .eyebrow{color:var(--paper)}
+#lookbook h2{font-family:"Anton",sans-serif;font-size:clamp(2.2rem,5vw,3.6rem);text-transform:uppercase;margin:6px 0 30px}
+.lookbook{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:0;border:2px solid var(--paper)}
+.look{position:relative;overflow:hidden;border-right:2px solid var(--paper);min-height:440px}
+.look:last-child{border-right:none}
+.look img{width:100%;height:100%;object-fit:cover;min-height:440px;filter:grayscale(.15)}
+.look figcaption{position:absolute;left:0;bottom:0;background:var(--red);color:#fff;font-family:"Anton",sans-serif;
+  font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:7px 14px}
+
+@media (max-width:880px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .pcard__reveal{position:static;transform:none;background:var(--paper);color:var(--ink);border-top:2px solid var(--ink)}
+  .pcard__price{color:var(--ink)}
+  .lookbook{grid-template-columns:1fr}
+  .look{border-right:none;border-bottom:2px solid var(--paper);min-height:340px}
+  .look img{min-height:340px}
+}
+</style>
+
+<!-- 숍 그리드 -->
+<section class="section" id="shop">
+  <div class="wrap">
+    <div class="shop__head reveal">
+      <div><p class="eyebrow">01 — Shop</p><h2>New In</h2></div>
+      <div class="filter" id="filter">
+        <button class="on" data-cat="전체">전체</button>
+        <button data-cat="아우터">아우터</button>
+        <button data-cat="니트">니트</button>
+        <button data-cat="셔츠">셔츠</button>
+        <button data-cat="슈즈·액세서리">슈즈·ACC</button>
+      </div>
+    </div>
+    <div class="grid" id="grid">
+      <figure class="pcard" data-cat="아우터"><span class="pcard__tag">ATON</span>
+        <img src="https://images.unsplash.com/photo-1629726343583-d9718b3e8f3f?auto=format&fit=crop&w=680&q=80" alt="오버사이즈 울 코트" loading="lazy">
+        <div class="pcard__reveal"><span class="pcard__name">오버사이즈 울 코트</span><span class="pcard__price">389,000<small> 원</small></span><a class="pcard__link" href="https://smartstore.naver.com" target="_blank" rel="noopener">스토어에서 보기 →</a></div></figure>
+      <figure class="pcard" data-cat="니트"><span class="pcard__tag">LEMAIRE</span>
+        <img src="https://images.unsplash.com/photo-1612242879330-cd06b2696e56?auto=format&fit=crop&w=680&q=80" alt="램스울 라운드 니트" loading="lazy">
+        <div class="pcard__reveal"><span class="pcard__name">램스울 라운드 니트</span><span class="pcard__price">168,000<small> 원</small></span><a class="pcard__link" href="https://smartstore.naver.com" target="_blank" rel="noopener">스토어에서 보기 →</a></div></figure>
+      <figure class="pcard" data-cat="셔츠"><span class="pcard__tag">AURALEE</span>
+        <img src="https://images.unsplash.com/photo-1598006839649-5588feb1bae0?auto=format&fit=crop&w=680&q=80" alt="코튼 오버셔츠" loading="lazy">
+        <div class="pcard__reveal"><span class="pcard__name">코튼 오버셔츠</span><span class="pcard__price">142,000<small> 원</small></span><a class="pcard__link" href="https://smartstore.naver.com" target="_blank" rel="noopener">스토어에서 보기 →</a></div></figure>
+      <figure class="pcard" data-cat="아우터"><span class="pcard__tag">STUDIO NICHOLSON</span>
+        <img src="https://images.unsplash.com/photo-1580478491436-fd6a937acc9e?auto=format&fit=crop&w=680&q=80" alt="셋업 블레이저" loading="lazy">
+        <div class="pcard__reveal"><span class="pcard__name">테일러드 셋업 블레이저</span><span class="pcard__price">298,000<small> 원</small></span><a class="pcard__link" href="https://smartstore.naver.com" target="_blank" rel="noopener">스토어에서 보기 →</a></div></figure>
+      <figure class="pcard" data-cat="슈즈·액세서리"><span class="pcard__tag">CAMPER</span>
+        <img src="https://images.unsplash.com/photo-1549298222-1c31e8915347?auto=format&fit=crop&w=680&q=80" alt="레더 더비 슈즈" loading="lazy">
+        <div class="pcard__reveal"><span class="pcard__name">레더 더비 슈즈</span><span class="pcard__price">215,000<small> 원</small></span><a class="pcard__link" href="https://smartstore.naver.com" target="_blank" rel="noopener">스토어에서 보기 →</a></div></figure>
+      <figure class="pcard" data-cat="니트"><span class="pcard__tag">+ QUINZE</span>
+        <img src="https://images.unsplash.com/photo-1541130292430-a832637ddc0d?auto=format&fit=crop&w=680&q=80" alt="알파카 가디건" loading="lazy">
+        <div class="pcard__reveal"><span class="pcard__name">알파카 블렌드 가디건</span><span class="pcard__price">189,000<small> 원</small></span><a class="pcard__link" href="https://smartstore.naver.com" target="_blank" rel="noopener">스토어에서 보기 →</a></div></figure>
+      <figure class="pcard" data-cat="셔츠"><span class="pcard__tag">OUR LEGACY</span>
+        <img src="https://images.unsplash.com/photo-1553544260-f87e671974ee?auto=format&fit=crop&w=680&q=80" alt="실크 블렌드 셔츠" loading="lazy">
+        <div class="pcard__reveal"><span class="pcard__name">실크 블렌드 셔츠</span><span class="pcard__price">176,000<small> 원</small></span><a class="pcard__link" href="https://smartstore.naver.com" target="_blank" rel="noopener">스토어에서 보기 →</a></div></figure>
+      <figure class="pcard" data-cat="슈즈·액세서리"><span class="pcard__tag">COMOPLAY</span>
+        <img src="https://images.unsplash.com/photo-1645996830739-8fe3df27c33f?auto=format&fit=crop&w=680&q=80" alt="레더 토트백" loading="lazy">
+        <div class="pcard__reveal"><span class="pcard__name">미니멀 레더 토트</span><span class="pcard__price">232,000<small> 원</small></span><a class="pcard__link" href="https://smartstore.naver.com" target="_blank" rel="noopener">스토어에서 보기 →</a></div></figure>
+    </div>
+    <p class="shop__note">* 가격·재고는 네이버 스마트스토어 기준입니다. 매장 픽업은 인스타그램 DM으로 문의해 주세요.</p>
+  </div>
+</section>
+
+<!-- 룩북 -->
+<section class="section" id="lookbook">
+  <div class="wrap">
+    <p class="eyebrow">02 — Lookbook</p>
+    <h2>SS26 — Quiet Statement</h2>
+    <div class="lookbook reveal">
+      <figure class="look"><img src="https://images.unsplash.com/photo-1574015974293-817f0ebebb74?auto=format&fit=crop&w=900&q=80" alt="룩북 1" loading="lazy"><figcaption>Look 01</figcaption></figure>
+      <figure class="look"><img src="https://images.unsplash.com/photo-1596993100471-c3905dafa78e?auto=format&fit=crop&w=700&q=80" alt="룩북 2" loading="lazy"><figcaption>Look 02</figcaption></figure>
+      <figure class="look"><img src="https://images.unsplash.com/photo-1538329972958-465d6d2144ed?auto=format&fit=crop&w=700&q=80" alt="룩북 3" loading="lazy"><figcaption>Look 03</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<style>
+/* 소개 */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--ink)}
+.about__l{padding:44px 40px;border-right:2px solid var(--ink)}
+.about__l h2{font-family:"Anton",sans-serif;font-size:clamp(2rem,4.4vw,3.2rem);text-transform:uppercase;line-height:.94;margin:8px 0 18px}
+.about__l p{color:var(--grey);margin-bottom:14px}
+.about__r{display:grid;grid-template-rows:repeat(3,1fr)}
+.about__stat{padding:26px 34px;border-bottom:2px solid var(--ink);display:flex;align-items:baseline;gap:18px}
+.about__stat:last-child{border-bottom:none}
+.about__stat b{font-family:"Anton",sans-serif;font-size:2.6rem;color:var(--red);line-height:1}
+.about__stat span{font-size:.9rem;color:var(--ink);font-weight:600}
+
+/* 오시는 길 */
+.visit{display:grid;grid-template-columns:1.3fr .7fr;border:2px solid var(--ink);margin-top:30px}
+.visit__map{min-height:400px;border-right:2px solid var(--ink)}
+.visit__map iframe{width:100%;height:100%;min-height:400px;border:0;display:block}
+.visit__info{padding:34px 32px}
+.visit__info h3{font-family:"Anton",sans-serif;font-size:1.5rem;text-transform:uppercase;margin-bottom:18px}
+.vrow{padding:13px 0;border-bottom:1px solid var(--line)}
+.vrow .l{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.vrow p{margin-top:3px}
+
+/* 문의 */
+#contact .contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:0;border:2px solid var(--ink)}
+.contact__l{padding:40px 36px;border-right:2px solid var(--ink)}
+.contact__l h2{font-family:"Anton",sans-serif;font-size:clamp(1.9rem,4vw,2.8rem);text-transform:uppercase;line-height:.94;margin:8px 0 14px}
+.contact__l p{color:var(--grey)}
+.form{padding:34px 32px}
+.form .field{margin-bottom:15px}
+.form label{display:block;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.form input,.form select,.form textarea{width:100%;padding:12px 13px;border:2px solid var(--ink);background:var(--paper);
+  font-family:inherit;font-size:.95rem;color:var(--ink)}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--red)}
+.form .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* 푸터 */
+.footer{background:var(--ink);color:var(--paper);padding:50px 0 110px;border-top:2px solid var(--ink)}
+.footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:22px;align-items:flex-end}
+.footer__logo{font-family:"Anton",sans-serif;font-size:clamp(3rem,9vw,7rem);text-transform:uppercase;line-height:.86}
+.footer__logo b{color:var(--red)}
+.footer small{color:rgba(237,233,225,.6);font-size:.82rem;line-height:1.8;display:block}
+.footer a{color:var(--red)}
+
+/* 모바일 하단바 */
+.mbar{display:none}
+@media (max-width:880px){
+  .about{grid-template-columns:1fr}
+  .about__l{border-right:none;border-bottom:2px solid var(--ink)}
+  .visit{grid-template-columns:1fr}
+  .visit__map{border-right:none;border-bottom:2px solid var(--ink)}
+  #contact .contact{grid-template-columns:1fr}
+  .contact__l{border-right:none;border-bottom:2px solid var(--ink)}
+  .form .two{grid-template-columns:1fr}
+  .footer{padding:40px 0 96px}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:95;border-top:2px solid var(--ink)}
+  .mbar a{flex:1;text-align:center;padding:15px 4px;font-size:.8rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+  .mbar a.ig{background:var(--ink);color:var(--paper)}
+  .mbar a.store{background:var(--red);color:#fff}
+  .mbar a.ask{background:var(--paper);color:var(--ink);border-left:2px solid var(--ink)}
+}
+</style>
+
+<!-- 소개 -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="about reveal">
+      <div class="about__l">
+        <p class="eyebrow">03 — About</p>
+        <h2>고르는 일이<br>우리의 취향입니다</h2>
+        <p>QUINZE는 2018년 한남동에서 시작한 컨템포러리 셀렉트샵입니다. 큰 브랜드보다, 매 시즌 직접 발품 팔아 고른 신진 디자이너의 한 벌을 더 좋아합니다.</p>
+        <p>분기마다 라인업의 절반을 새로 바꿉니다. 유행을 좇기보다, 오래 입을 물건만 들여놓는다는 원칙으로.</p>
+      </div>
+      <div class="about__r">
+        <div class="about__stat"><b>15</b><span>매 시즌 새로 들이는<br>브랜드 수</span></div>
+        <div class="about__stat"><b>2018</b><span>한남 플래그십<br>오픈 연도</span></div>
+        <div class="about__stat"><b>48H</b><span>스토어 주문<br>평균 출고</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 오시는 길 -->
+<section class="section" id="visit">
+  <div class="wrap">
+    <p class="eyebrow">04 — Visit</p>
+    <h2 class="display" style="font-size:clamp(2.2rem,5vw,3.6rem)">Hannam Flagship</h2>
+    <div class="visit">
+      <div class="visit__map reveal">
+        <iframe title="QUINZE 한남 매장 지도" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=126.9950%2C37.5285%2C127.0110%2C37.5395&layer=mapnik&marker=37.5340%2C127.0028"></iframe>
+      </div>
+      <div class="visit__info reveal">
+        <h3>QUINZE Seoul</h3>
+        <div class="vrow"><span class="l">Address</span><p>서울 용산구 한남동 00-0 1F <small>(샘플 주소)</small></p></div>
+        <div class="vrow"><span class="l">Hours</span><p>매일 12:00 – 20:00<br>(설·추석 당일 휴무)</p></div>
+        <div class="vrow"><span class="l">Store</span><p><a href="https://smartstore.naver.com" target="_blank" rel="noopener" style="color:var(--red);font-weight:700">네이버 스마트스토어</a></p></div>
+        <div class="vrow"><span class="l">Instagram</span><p><a href="https://instagram.com" target="_blank" rel="noopener" style="color:var(--red);font-weight:700">@quinze.seoul</a></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 문의 (홀세일·입점) -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <div class="contact__l reveal">
+        <p class="eyebrow">05 — Contact</p>
+        <h2>Wholesale<br>&amp; 입점 문의</h2>
+        <p>브랜드 입점·홀세일·팝업 협업을 환영합니다. 아래로 남겨주시면 영업일 기준 2–3일 안에 회신드립니다.</p>
+        <p style="margin-top:10px;color:var(--grey);font-size:.88rem">* 상품 구매·재고 문의는 스마트스토어 또는 인스타그램 DM을 이용해 주세요.</p>
+      </div>
+      <form class="form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="two">
+          <div class="field"><label for="brand">브랜드 / 성함</label><input id="brand" name="brand" type="text" required></div>
+          <div class="field"><label for="email">이메일</label><input id="email" name="email" type="email" required></div>
+        </div>
+        <div class="field"><label for="type">문의 유형</label>
+          <select id="type" name="type"><option>브랜드 입점</option><option>홀세일</option><option>팝업·협업</option><option>기타</option></select></div>
+        <div class="field"><label for="msg">내용</label><textarea id="msg" name="msg" rows="4" placeholder="브랜드 소개, 제안 내용을 적어주세요"></textarea></div>
+        <button type="submit" class="btn btn--red" style="width:100%;justify-content:center">문의 보내기</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- 푸터 -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__logo">QUIN<b>Z</b>E</div>
+    <div>
+      <small>서울 용산구 한남동 00-0 · 매일 12:00–20:00<br><a href="https://smartstore.naver.com" target="_blank" rel="noopener">스마트스토어</a> · <a href="https://instagram.com" target="_blank" rel="noopener">@quinze.seoul</a><br>© 2026 QUINZE. 이피웹 제작 샘플.</small>
+    </div>
+  </div>
+</footer>
+
+<!-- 모바일 하단바 -->
+<div class="mbar">
+  <a class="ig" href="https://instagram.com" target="_blank" rel="noopener">인스타</a>
+  <a class="store" href="https://smartstore.naver.com" target="_blank" rel="noopener">스토어</a>
+  <a class="ask" href="#contact">문의</a>
+</div>
+
+<style>
+/* 스크롤 리빌 — 데스크탑 한정(모바일 항상 표시) */
+.reveal{opacity:1;transform:none}
+@media (min-width:881px){
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+}
+</style>
+
+<script>
+(function(){
+  // 게이트 진입
+  var gate=document.getElementById('gate'), enter=document.getElementById('enterBtn');
+  var entered=false; try{ entered=sessionStorage.getItem('quinze_entered')==='1'; }catch(e){}
+  if(entered && gate){ gate.style.transition='none'; gate.classList.add('open'); }
+  function openGate(){ if(gate) gate.classList.add('open'); try{ sessionStorage.setItem('quinze_entered','1'); }catch(e){} }
+  if(enter) enter.addEventListener('click',openGate);
+
+  // 모바일 햄버거
+  var burger=document.getElementById('burger'), links=document.getElementById('navLinks');
+  if(burger){ burger.addEventListener('click',function(){ links.classList.toggle('open'); }); }
+  links.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ links.classList.remove('open'); }); });
+
+  // 필터
+  var filter=document.getElementById('filter'), cards=[].slice.call(document.querySelectorAll('#grid .pcard'));
+  if(filter){ filter.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b)return;
+    filter.querySelectorAll('button').forEach(function(x){ x.classList.remove('on'); });
+    b.classList.add('on');
+    var cat=b.getAttribute('data-cat');
+    cards.forEach(function(c){ c.style.display=(cat==='전체'||c.getAttribute('data-cat')===cat)?'':'none'; });
+  }); }
+
+  // 스크롤 리빌 (데스크탑만)
+  if(window.matchMedia('(min-width:881px)').matches && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); },{threshold:.1});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
